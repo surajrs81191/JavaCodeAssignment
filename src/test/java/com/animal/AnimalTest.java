@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.animal.animals.Chicken;
 import com.animal.animals.Duck;
+import com.animal.animals.Rooster;
 import com.animal.features.Fly;
 import com.animal.features.Swim;
 
@@ -33,6 +34,19 @@ public class AnimalTest {
 		assertEquals("chicken Sound ..", "Cluk Cluk",chicken.sound());
 		//2d
 		assertEquals("duck can not Fly ?", false,chicken instanceof Fly);
+	}
+	
+	@Test
+	public void roosterTest() {
+		Bird rooster = new Rooster();
+		//3a
+		assertEquals("chicken Sound ..", "Cock-a-doodle-doo",rooster.sound());
+		//3b
+		//chicken and rooster are related to each other as they both are non flying birds
+		//3c
+		//
+		
+		
 	}
 	
 }
