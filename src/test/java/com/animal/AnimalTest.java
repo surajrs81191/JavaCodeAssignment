@@ -6,11 +6,11 @@ import org.junit.Test;
 
 import com.animal.animals.Chicken;
 import com.animal.animals.ClownFish;
+import com.animal.animals.Dolphin;
 import com.animal.animals.Duck;
 import com.animal.animals.Parrot;
 import com.animal.animals.Rooster;
 import com.animal.animals.Shark;
-import com.animal.features.Eat;
 import com.animal.features.Fly;
 import com.animal.features.Joke;
 import com.animal.features.Sound;
@@ -111,5 +111,14 @@ public class AnimalTest {
 		assertEquals("clownFish can joke ?", true, clownFish instanceof Joke);
 	}
 
-	
+	@Test
+	public void dolphinTest() {
+		Animal dolphin = new Dolphin();
+		//3a - dolphin is not inherited from fish
+		assertEquals("dolphin is not fish ?", false, dolphin instanceof Fish);
+		//3b
+		assertEquals("dolphin can swim ?", false, dolphin instanceof Swim);
+	}
+
+		
 }
