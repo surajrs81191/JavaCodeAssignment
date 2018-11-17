@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.animal.animals.ButerFly;
+import com.animal.animals.CaterPillar;
 import com.animal.animals.Chicken;
 import com.animal.animals.ClownFish;
 import com.animal.animals.Dolphin;
@@ -117,8 +119,33 @@ public class AnimalTest {
 		//3a - dolphin is not inherited from fish
 		assertEquals("dolphin is not fish ?", false, dolphin instanceof Fish);
 		//3b
-		assertEquals("dolphin can swim ?", false, dolphin instanceof Swim);
+		assertEquals("dolphin can swim ?", true, dolphin instanceof Swim);
 	}
 
+	//C
+		@Test
+	public void buterFlyTest() {
+		Animal buterFly = new ButerFly();
+		//1a
+		assertEquals("buterFly can Fly ?", true, buterFly instanceof Fly);
+		//1b
+		assertEquals("buterFly can not Sound ?", false, buterFly instanceof Sound);
+
+	}
+
+		@Test
+		public void caterpillarTest() {
+			Animal caterPillar = new CaterPillar();
 		
+			//2a
+			assertEquals("caterPillar can not Fly ?", false, caterPillar instanceof Fly);
+			//2b
+			assertEquals("caterPillar can walk ?", true, caterPillar instanceof Walk);
+			
+			caterPillar =((CaterPillar)caterPillar).metamorphasise();
+			//Metamorphosis
+			assertEquals("caterPillar changed to buterfly walk ?", true, caterPillar instanceof ButerFly);
+			
+			
+		}	
 }
