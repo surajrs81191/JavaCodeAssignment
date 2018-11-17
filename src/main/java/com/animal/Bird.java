@@ -1,12 +1,12 @@
 package com.animal;
 
-import com.animal.features.Sing;
+import com.animal.features.Sound;
 import com.animal.features.Walk;
 
-public abstract class Bird implements Animal,Walk,Sing {
+public abstract class Bird implements Animal,Walk,Sound {
 	
-	public void walk() {
-		System.out.println("Bird is walking");
+	public String walk() {
+		return "Bird is walking";
 	}
 
 }
