@@ -2,6 +2,10 @@ package com.animal;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.animal.animals.ButerFly;
@@ -136,16 +140,41 @@ public class AnimalTest {
 		@Test
 		public void caterpillarTest() {
 			Animal caterPillar = new CaterPillar();
-		
 			//2a
 			assertEquals("caterPillar can not Fly ?", false, caterPillar instanceof Fly);
 			//2b
 			assertEquals("caterPillar can walk ?", true, caterPillar instanceof Walk);
 			
-			caterPillar =((CaterPillar)caterPillar).metamorphasise();
+			caterPillar =((CaterPillar)caterPillar).metamorphosis();
 			//Metamorphosis
 			assertEquals("caterPillar changed to buterfly walk ?", true, caterPillar instanceof ButerFly);
-			
-			
-		}	
+		}
+		
+		@Test
+		public void countingAnimalsTest() {
+			Animal[] animals= new Animal[] {
+					new Duck(),new Chicken(),new Rooster(),new Parrot("Parrot Singing"), new Shark(), new ClownFish(),new Dolphin(),new ButerFly()
+			};
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			for(Animal animal : animals) {
+				if(animal instanceof Fly) {
+					map.compute(Fly.class.getSimpleName(), (k,v)->v==null?1:v+1);
+				}
+				if(animal instanceof Walk) {
+					map.compute(Walk.class.getSimpleName(), (k,v)->v==null?1:v+1);
+				}
+				if(animal instanceof Sound) {
+					map.compute(Sound.class.getSimpleName(), (k,v)->v==null?1:v+1);
+				}
+				if(animal instanceof Swim) {
+					map.compute(Swim.class.getSimpleName(), (k,v)->v==null?1:v+1);
+				}
+			}
+			System.out.println(map);
+			Assert.assertSame("walking animals", 4, map.get("Walk"));
+			Assert.assertSame("Flying animals", 3, map.get("Fly"));
+			Assert.assertSame("Sounding animals", 4, map.get("Sound"));
+			Assert.assertSame("Swiming animals", 4, map.get("Swim"));
+		}
+
 }
