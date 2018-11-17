@@ -5,10 +5,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.animal.animals.Chicken;
+import com.animal.animals.ClownFish;
 import com.animal.animals.Duck;
 import com.animal.animals.Parrot;
 import com.animal.animals.Rooster;
+import com.animal.animals.Shark;
+import com.animal.features.Eat;
 import com.animal.features.Fly;
+import com.animal.features.Joke;
 import com.animal.features.Sound;
 import com.animal.features.Swim;
 import com.animal.features.Walk;
@@ -87,6 +91,25 @@ public class AnimalTest {
 		assertEquals("fish can Swim ?", true, fish instanceof Swim);
 		
 	}
-	
+	@Test
+	public void sharkTest() {
+		Fish shark = new Shark();
+		//2a
+		assertEquals("Shark Color ","Grey", shark.getColor());
+		assertEquals("Shark size ","Big", shark.getSize());
+		//2d
+		assertEquals("shark eats", "Fish", ((Shark)shark).eat(new Fish() {
+		}));
+	}
+	@Test
+	public void clownFishTest() {
+		Fish clownFish = new ClownFish();
+		//2b
+		assertEquals("clownFish Color ","Orange", clownFish.getColor());
+		assertEquals("clownFish size ","Small", clownFish.getSize());
+		//2c
+		assertEquals("clownFish can joke ?", true, clownFish instanceof Joke);
+	}
+
 	
 }
