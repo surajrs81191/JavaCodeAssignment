@@ -9,7 +9,9 @@ import com.animal.animals.Duck;
 import com.animal.animals.Parrot;
 import com.animal.animals.Rooster;
 import com.animal.features.Fly;
+import com.animal.features.Sound;
 import com.animal.features.Swim;
+import com.animal.features.Walk;
 
 public class AnimalTest {
 
@@ -17,7 +19,7 @@ public class AnimalTest {
 	public void animalTest() {
 		assert (true);
 	}
-
+	//A
 	@Test
 	public void duckTest() {
 		Bird duck = new Duck();
@@ -68,4 +70,23 @@ public class AnimalTest {
 		Parrot phoneParrot = new Parrot("Trin Trin");
 		assertEquals("phoneParrot Sound ..", "Trin Trin", phoneParrot.sound());
 	}
+	
+	//B
+	@Test
+	public void fishTest() {
+		Fish fish = new Fish() {
+			
+		};
+		//1a
+		assertEquals("fish can not Sound ?", false, fish instanceof Sound);
+		
+		//1b
+		assertEquals("fish can not Walk ?", false, fish instanceof Walk);
+		
+		//1c
+		assertEquals("fish can Swim ?", true, fish instanceof Swim);
+		
+	}
+	
+	
 }
